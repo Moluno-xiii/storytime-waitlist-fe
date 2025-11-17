@@ -6,13 +6,7 @@ interface Form {
   email: string;
 }
 
-export default function WaitListForm({
-  showWaitListForm,
-  setShowWaitListForm,
-}: {
-  showWaitListForm: boolean;
-  setShowWaitListForm: React.Dispatch<React.SetStateAction<boolean>>;
-}) {
+export default function WaitListForm({ onClose }: { onClose: () => void }) {
   const [canSubmit, setCanSubmit] = useState(false);
   const [fullName, setFullName] = useState("");
   const [email, setEmail] = useState("");
@@ -39,9 +33,7 @@ export default function WaitListForm({
       console.log({ fullName, email });
     }
   };
-  if (!showWaitListForm) {
-    return null;
-  }
+
   return (
     <section className="font-abezee fixed inset-0 flex h-screen items-center justify-center bg-[#221D1DB2]/70 px-4">
       <div className="flex max-w-[488px] flex-col gap-8 rounded-4xl bg-[#FFFFFF] p-4 md:p-8">
@@ -50,7 +42,7 @@ export default function WaitListForm({
           <Icon
             icon={"material-symbols-light:close"}
             className="cursor-pointer text-2xl"
-            onClick={() => setShowWaitListForm(false)}
+            onClick={onClose}
           />
         </header>
         <div>

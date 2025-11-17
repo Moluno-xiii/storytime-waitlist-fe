@@ -27,7 +27,10 @@ const HeroSection = () => {
         >
           Join the waitlist
         </button>
-        <WaitListForm showWaitListForm={showWaitListForm} />
+        <WaitListForm
+          showWaitListForm={showWaitListForm}
+          setShowWaitListForm={setShowWaitListForm}
+        />
       </section>
     </div>
   );
